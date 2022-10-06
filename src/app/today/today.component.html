@@ -1,0 +1,247 @@
+<app-header class="relative z-20"></app-header>
+<div class="flex justify-center">
+  <div class="max-w-6xl mx-44 mt-3 mb-[60px]">
+    <div class="flex">
+      <div class="w-[788px] grow-[3]">
+        <div
+          class="bg-[url('https://s.w-x.co/WeatherImages_Web/WeatherImage_Fair-day_1.jpg?crop=16:9&width=800&format=pjpg&auto=webp&quality=70')]
+                  bg-no-repeat
+                  bg-cover
+                  bg-center
+                  mb-3
+                  rounded-md
+                  text-white"
+          >
+          <div class="px-4 py-[10px] bg-[rgba(0,0,0,0.55)] rounded-t-md">
+            <span class="text-xl font-medium">{{address}}</span>
+            <span class="text-lg">&nbsp;Kể từ {{today | date : 'HH:mm'}} ICT</span>
+          </div>
+          <div class="px-4 py-[10px] flex justify-between drop-shadow-md">
+            <div class="flex flex-col">
+              <span class="text-8xl font-semibold">{{infoCurrentHour.temp}}°</span>
+              <span class="text-2xl font-medium">{{infoCurrentHour.cloud}}</span>
+              <span class="text-2xl font-bold">Ngày {{infoCurrentDay.morning.temp}}° • Đêm {{infoCurrentDay.night.temp}}°</span>
+            </div>
+            <i class="{{infoCurrentHour.iconCloud}} text-7xl flex items-center"></i>
+          </div>
+        </div>
+        <div class="bg-white mb-3 rounded-md">
+          <div class="p-4 text-xl font-medium flex">
+            <h3>Dự báo hôm nay cho</h3>
+            &nbsp;
+            <span>{{address}}</span>
+          </div>
+          <div class="px-2 mb-4 flex justify-center">
+            <div class="pr-4 border-r flex flex-col items-center basis-1/4">
+              <a href="" [routerLink]="['/hourly']" class="flex flex-col items-center">
+                <h2 class="text-lg font-bold pb-1">Sáng</h2>
+                <span class="text-4xl font-bold text-[#1b4de4]">33°</span>
+                <i class="fa-solid fa-cloud-sun text-5xl text-gray-400 mt-3"></i>
+                <div>
+                  <i class="fa-solid fa-cloud-rain mr-1 text-[aqua]"></i>
+                  <span class="text-lg font-bold">2%</span>
+                </div>
+              </a>
+            </div>
+            <div class="px-4 border-r flex flex-col items-center basis-1/4">
+              <a href="" [routerLink]="['/hourly']" class="flex flex-col items-center">
+                <h2 class="text-lg pb-1">Chiều</h2>
+                <span class="text-4xl text-[#1b4de4]">33°</span>
+                <i class="fa-solid fa-cloud-sun text-5xl text-gray-400 mt-3"></i>
+                <div>
+                  <i class="fa-solid fa-cloud-rain mr-1 text-[aqua]"></i>
+                  <span class="text-lg">2%</span>
+                </div>
+              </a>
+            </div>
+            <div class="px-4 border-r flex flex-col items-center basis-1/4">
+              <a href="" [routerLink]="['/hourly']" class="flex flex-col items-center">
+                <h2 class="text-lg pb-1">Tối</h2>
+                <span class="text-4xl text-[#1b4de4]">33°</span>
+                <i class="fa-solid fa-cloud-sun text-5xl text-gray-400 mt-3"></i>
+                <div>
+                  <i class="fa-solid fa-cloud-rain mr-1 text-[aqua]"></i>
+                  <span class="text-lg">2%</span>
+                </div>
+              </a>
+            </div>
+            <div class="pl-4 flex flex-col items-center basis-1/4">
+              <a href="" [routerLink]="['/hourly']" class="flex flex-col items-center">
+                <h2 class="text-lg pb-1">Qua đêm</h2>
+                <span class="text-4xl text-[#1b4de4]">33°</span>
+                <i class="fa-solid fa-cloud-sun text-5xl text-gray-400 mt-3"></i>
+                <div>
+                  <i class="fa-solid fa-cloud-rain mr-1 text-[aqua]"></i>
+                  <span class="text-lg">2%</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="px-4 pb-5 pt-1">
+            <a href="" [routerLink]="['/hourly']" class="px-[14px] py-2 rounded-3xl bg-[#1b4de4] text-white text-sm font-bold">Các giờ tới</a>
+          </div>
+        </div>
+        <div class="bg-white mb-3 rounded-md">
+          <div class="p-4 text-xl font-medium flex">
+            <h3>Thời tiết hôm nay tại</h3>
+            &nbsp;
+            <span>{{address}}</span>
+          </div>
+          <div class="ml-9 mr-[26px] mb-[26px] flex justify-between">
+            <div class="flex flex-col">
+              <span class="text-[56px] leading-[1em] font-semibold">37°</span>
+              <span>Cảm giác như</span>
+            </div>
+            <div>
+              <div class="ml-4 half-circle text-center"></div>
+              <div class="flex">
+                <div class="flex items-center">
+                  <i class="fa-solid fa-arrow-up text-[#febc11]"></i>
+                  <p class="pl-3 my-3 text-[15px]">5:41</p>
+                </div>
+                <div class="ml-2 flex items-center">
+                  <i class="fa-solid fa-arrow-down text-[#febc11]"></i>
+                  <p class="pl-3 my-3 text-[15px]">18:09</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap">
+            <div class="px-4 py-[10px] border-t mr-[6px] flex flex-[1_1_49%] items-center">
+              <i class="fa-solid fa-temperature-low"></i>
+              <span class="px-[10px] grow">Cao/Thấp</span>
+              <span class="">--/24°</span>
+            </div>
+            <div class="px-4 py-[10px] border-t ml-[6px] flex flex-[1_1_49%] items-center">
+              <i class="fa-solid fa-wind"></i>
+              <span class="px-[10px] grow">Gió</span>
+              <span>6 km/giờ</span>
+            </div>
+            <div class="px-4 py-[10px] border-t mr-[6px] flex flex-[1_1_49%] items-center">
+              <i class="fa-solid fa-droplet"></i>
+              <span class="px-[10px] grow">Độ ẩm</span>
+              <span class="">55%</span>
+            </div>
+            <div class="px-4 py-[10px] border-t ml-[6px] flex flex-[1_1_49%] items-center">
+              <i class="fa-solid fa-droplet"></i>
+              <span class="px-[10px] grow">Điểm ngưng</span>
+              <span>22°</span>
+            </div>
+            <div class="px-4 py-[10px] border-t mr-[6px] flex flex-[1_1_49%] items-center">
+              <i class="fa-solid fa-arrows-to-dot"></i>
+              <span class="px-[10px] grow">Áp suất</span>
+              <span class="">1005.1 mb</span>
+            </div>
+            <div class="px-4 py-[10px] border-t ml-[6px] flex flex-[1_1_49%] items-center">
+              <i class="fa-solid fa-sun"></i>
+              <span class="px-[10px] grow">Chỉ số UV</span>
+              <span>0 / 10</span>
+            </div>
+            <div class="px-4 py-[10px] border-t mr-[6px] flex flex-[1_1_49%] items-center">
+              <i class="fa-solid fa-eye"></i>
+              <span class="px-[10px] grow">Tầm nhìn</span>
+              <span class="">9.66 km</span>
+            </div>
+            <div class="px-4 py-[10px] border-t ml-[6px] flex flex-[1_1_49%] items-center">
+              <i class="fa-regular fa-moon"></i>
+              <span class="px-[10px] grow">Tuần trăng</span>
+              <span>Trăng khuyết đầu tháng</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white mb-3 rounded-md">
+          <h3 class="p-4 text-xl font-medium">Dự báo từng giờ</h3>
+          <div class="px-2 mb-4 flex justify-center">
+            <ng-container *ngFor="let hour of infoFiveHours; let i = index">
+              <div class="flex flex-col items-center basis-1/5" [ngClass]="{'border-r' : i < 4, 'pr-4' : i == 0, 'pl-4 ' : i == 4}">
+                <a href="" [routerLink]="['/hourly']" class="flex flex-col items-center">
+                  <div *ngIf="i === 0; then now; else nextHour"></div>
+                  <ng-template #now>
+                    <h2 class="text-lg pb-1" [ngClass]="{'font-bold' : i === 0}">Bây giờ</h2>
+                  </ng-template>
+                  <ng-template #nextHour>
+                    <h2 class="text-lg pb-1" [ngClass]="{'font-bold' : i === 0}">{{hour.hour}}</h2>
+                  </ng-template>
+                  <span class="text-4xl text-[#1b4de4]" [ngClass]="{'font-bold' : i === 0}">{{hour.temp}}°</span>
+                  <i class="{{hour.iconCloud}} text-5xl text-gray-400 mt-3"></i>
+                  <div>
+                    <i class="fa-solid fa-cloud-rain mr-1 text-[aqua]"></i>
+                    <span class="text-lg" [ngClass]="{'font-bold' : i === 0}">{{hour.rain}}%</span>
+                  </div>
+                </a>
+              </div>
+            </ng-container>
+          </div>
+          <div class="px-4 pb-5 pt-1">
+            <a href="" [routerLink]="['/hourly']" class="px-[14px] py-2 rounded-3xl bg-[#1b4de4] text-white text-sm font-bold">48 giờ tới</a>
+          </div>
+        </div>
+        <div class="bg-white mb-3 rounded-md">
+          <h3 class="p-4 text-xl font-medium">Dự báo hằng ngày</h3>
+          <div class="px-2 mb-4 flex justify-center">
+            <ng-container *ngFor="let day of infoFiveDays; let i = index">
+              <div class="flex flex-col items-center basis-1/5" [ngClass]="{'border-r' : i < 4, 'pr-4' : i == 0, 'pl-4 ' : i == 4}">
+                <a href="" [routerLink]="['/tenDays']" class="flex flex-col items-center">
+                  <div *ngIf="i === 0; then today; else nextDay"></div>
+                  <ng-template #today>
+                    <h2 class="text-lg pb-1" [ngClass]="{'font-bold' : i === 0}">Hôm nay</h2>
+                  </ng-template>
+                  <ng-template #nextDay>
+                    <h2 class="text-lg pb-1" [ngClass]="{'font-bold' : i === 0}">{{day.dayOfWeek}} {{day.dayOfMonth}}</h2>
+                  </ng-template>
+                  <span class="text-4xl text-[#1b4de4]" [ngClass]="{'font-bold' : i === 0}">{{day.morning.temp}}°</span>
+                  <span class="text-lg text-[#1b4de4]">{{day.night.temp}}°</span>
+                  <i class="{{day.morning.iconCloud}} text-5xl text-gray-400 mt-3"></i>
+                  <div>
+                    <i class="fa-solid fa-cloud-rain mr-1 text-[aqua]"></i>
+                    <span class="text-lg" [ngClass]="{'font-bold' : i === 0}">{{day.morning.rain}}%</span>
+                  </div>
+                </a>
+              </div>
+            </ng-container>
+          </div>
+          <div class="px-4 pb-5 pt-1">
+            <a href="" [routerLink]="['/tenDays']" class="px-[14px] py-2 rounded-3xl bg-[#1b4de4] text-white text-sm font-bold">10 ngày tới</a>
+          </div>
+        </div>
+      </div>
+      <div class="w-[338px] ml-3 grow">
+        <div class="bg-white mb-3 rounded-md">
+          <h1 class="p-4 text-xl font-semibold">CHỈ SỐ CH.LƯỢNG KH.KHÍ</h1>
+          <div class="flex">
+            <div class="pl-[25px] pt-[2px]">
+              <div class="pie w-[60px] h-[60px] text-2xl font-thin" style="--p:{{airHighest.percent}};--b:5px;--c:{{airHighest.colorLevel}};">{{airHighest.value}}</div>
+            </div>
+            <div class="pt-3 pl-[26px] pr-4">
+              <span class="text-[18px] leading-none">{{airHighest.nameLevel}}</span>
+              <p class="pb-[15px] text-sm text-[#6f7585] leading-[18px]">{{airHighest.desc}}</p>
+            </div>
+          </div>
+          <div class="px-4 pb-5 pt-1 mt-4">
+            <a href="" [routerLink]="['/airQuality']" class="px-[14px] py-2 rounded-3xl bg-[#1b4de4] text-white text-sm font-bold">Xem chi tiết</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-md">
+          <div class="px-4 pt-4">
+            <h1 class="text-xl font-semibold">Sức khỏe & Hoạt động</h1>
+          </div>
+          <div class="border-t">
+            <a href="" [routerLink]="['/allergy']" class="pl-6 py-4 pr-4 flex items-center">
+              <div class="pie w-[50px] h-[50px] min-w-[50px]" style="--p:0;--b:5px;--c:yellow;">
+                <i class="fa-solid fa-seedling"></i>
+              </div>
+              <div class="ml-5">
+                <span class="mb-1 text-[18px] leading-[1.1em] ">Dự báo dị ứng theo mùa và lượng phấn hoa</span>
+                <p class="text-sm text-[#6f7585]">Không phát hiện phấn hoa trong khu vực của bạn</p>
+              </div>
+              <div class="pl-[10px]">
+                <i class="fa-solid fa-angle-right text-[#1b4de4]"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

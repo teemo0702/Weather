@@ -1,0 +1,125 @@
+<app-header></app-header>
+<div class="flex justify-center">
+  <div class="max-w-6xl mx-44 mt-3 mb-[60px]">
+    <div class="flex">
+      <div class="w-[788px] grow-[3]">
+        <div class="bg-white mb-3 rounded-md">
+          <h2 class="px-4 pt-4 text-xl font-medium">Thông tin phấn hoa</h2>
+          <p class="px-4 pt-[10px] text-sm">Bạn có biết những loại phấn hoa làm các triệu chứng của bạn thêm nghiêm trọng không? Sau đây là viễn cảnh 3 ngày đối với những thủ phạm tồi tệ nhất.</p>
+          <div class="flex flex-nowrap">
+            <!-- <div class="pl-9 py-9 grow" *ngFor="let pollen of pollens; let i = index">
+              <div class="pr-9" id="pollen" [ngClass]="{ 'border-r' : pollens.length - i > 1 }">
+                <div class="flex justify-center">
+                  <img src="{{pollen.imgUrl}}" alt="" />
+                </div>
+                <h3 class=" w-[190px] pt-5 text-lg font-bold">Phấn hoa từ {{pollen.name}}</h3>
+                <ul class="pt-4">
+                  <li class="text-base">
+                    Hôm nay:
+                    <span class="font-bold">{{pollen.today}}</span>
+                  </li>
+                  <li class="text-base">
+                    Ngày mai:
+                    <span class="font-bold">{{pollen.tomorrow}}</span>
+                  </li>
+                  <li class="text-base">
+                    {{afterTomorrowName}}:
+                    <span class="font-bold">{{pollen.dayAfterTomorrow}}</span>
+                  </li>
+                </ul>
+              </div>
+            </div> -->
+            <div class="pl-9 py-9 grow">
+              <div class="pr-9 border-r">
+                <div class="flex justify-center">
+                  <img src="../../assets/img/allergy/bui1.png" alt="" />
+                </div>
+                <h3 class=" w-[190px] pt-5 text-lg font-bold">Phấn hoa từ cây</h3>
+                <ul class="pt-4">
+                  <li class="text-base">
+                    Hôm nay:
+                    <span class="font-bold">Không có</span>
+                  </li>
+                  <li class="text-base">
+                    Ngày mai:
+                    <span class="font-bold">Không có</span>
+                  </li>
+                  <li class="text-base">
+                    Thứ Sáu:
+                    <span class="font-bold">Không có</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="pl-9 py-9 grow">
+              <div class="pr-9 border-r">
+                <div class="flex justify-center">
+                  <img src="../../assets/img/allergy/bui1.png" alt="" />
+                </div>
+                <h3 class=" w-[190px] pt-5 text-lg font-bold">Phấn hoa từ cây</h3>
+                <ul class="pt-4">
+                  <li class="text-base">
+                    Hôm nay:
+                    <span class="font-bold">Không có</span>
+                  </li>
+                  <li class="text-base">
+                    Ngày mai:
+                    <span class="font-bold">Không có</span>
+                  </li>
+                  <li class="text-base">
+                    Thứ Sáu:
+                    <span class="font-bold">Không có</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="pl-9 py-9 grow">
+              <div class="pr-9">
+                <div class="flex justify-center">
+                  <img src="../../assets/img/allergy/bui1.png" alt="" />
+                </div>
+                <h3 class=" w-[190px] pt-5 text-lg font-bold">Phấn hoa từ cây</h3>
+                <ul class="pt-4">
+                  <li class="text-base">
+                    Hôm nay:
+                    <span class="font-bold">Không có</span>
+                  </li>
+                  <li class="text-base">
+                    Ngày mai:
+                    <span class="font-bold">Không có</span>
+                  </li>
+                  <li class="text-base">
+                    Thứ Sáu:
+                    <span class="font-bold">Không có</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="px-4 pb-3">
+            <i class="fa-solid fa-circle-info text-sm"></i>
+            <span class="text-xs ml-1">Thông tin chi tiết về phấn hoa</span>
+          </div>
+        </div>
+        <div class="bg-white rounded-md">
+          <h2 class="px-4 pt-4 pb-7 text-xl font-bold ">Tips to Help Manage Your Allergies</h2>
+          <div class="flex flex-wrap">
+            <div class="flex p-4 w-[394px] items-center" *ngFor="let tip of tipAllergies">
+              <img src="{{tip.imgUrl}}" alt="" class="w-14 h-14 mr-6" />
+              <div class="text-sm">
+                <span class="font-bold">
+                  {{tip.name}}
+                  <i class="fa-solid fa-minus"></i>
+                </span>
+                {{tip.description}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-[338px] ml-3 grow">
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

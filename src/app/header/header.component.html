@@ -1,0 +1,142 @@
+<div class="bg-sky-800">
+  <div class="text-[#fff] text-lg relative flex p-[6px] my-0 mx-[120px] items-center">
+    <div class="flex items-center pr-[30px]">
+      <a href="" [routerLink]="['/today']" class="p-[5px]">
+        <h1 class="w-[60px] h-[60px] bg-white text-[#075985] p-[6px] text-xs font-bold leading-none flex items-end">
+          The Weather Channel
+        </h1>
+      </a>
+      <span class="inline-block ml-3">An IBM Business</span>
+    </div>
+    <div class="flex items-center">
+      <div class="w-[380px] h-[38px] mx-[245px] relative">
+        <input
+          type="text"
+          placeholder="Tìm thành phố hoặc mã zip"
+          class="
+            bg-[#337a9e]
+            rounded-[20px]
+            h-full
+            w-full
+            pr-10
+            text-center
+            text-base
+            placeholder:text-white
+            placeholder:text-[16px]
+            focus:outline-2
+            focus:outline-white
+            "
+        />
+        <i class="fa-solid fa-magnifying-glass absolute bottom-[10px] right-4"></i>
+        <div class="hidden pb-3 rounded-md bg-white text-black absolute top-[43px] left-0 right-0">
+          <h2 class="p-4 text-[20px] font-semibold leading-none">Recents</h2>
+          <div class="px-4 py-2 text-base">Bạn không có vị trí gần đây.</div>
+        </div>
+      </div>
+      <a href="" [routerLink]="['/login']" class="languageSelector w-[148px] h-[30px] pt-2 flex items-center">
+        <i class="fa-solid fa-earth-africa text-[24px] pl-[10px]"></i>
+        <span class="border-r px-[10px] text-base h-[18px] flex items-center">VN</span>
+        <span class="px-[10px] text-base h-[18px] flex items-center">°C</span>
+        <i class="fa-solid fa-caret-down pl-1 text-2xl"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="bg-[#337a9e] h-10 w-full">
+
+</div>
+
+<div class="bg-[#003550] h-10 w-full">
+  <div class="mx-[120px] h-full text-white flex">
+    <div class="w-[1080px] flex justify-around">
+      <a
+        href=""
+        [routerLink]="['/today']"
+        routerLinkActive="border-b-[3px]"
+        class="
+          h-10
+          px-4
+          pt-2
+          hover:border-b-[3px]
+        "
+      >
+        <span>H.nay</span>
+      </a>
+      <a
+        href=""
+        [routerLink]="['/hourly']"
+        routerLinkActive="border-b-[3px]"
+        class="
+          h-10
+          px-4
+          pt-2
+          hover:border-b-[3px]
+        "
+      >
+        <span>Hàng giờ</span>
+      </a>
+      <a
+        href=""
+        [routerLink]="['/tenDays']"
+        routerLinkActive="border-b-[3px]"
+        class="
+          h-10
+          px-4
+          pt-2
+          hover:border-b-[3px]
+        "
+      >
+        <span>10 ngày</span>
+      </a>
+      <a
+        href=""
+        [routerLink]="['/weekend']"
+        routerLinkActive="border-b-[3px]"
+        class="
+          h-10
+          px-4
+          pt-2
+          hover:border-b-[3px]
+        "
+      >
+        <span>Cuối tuần</span>
+      </a>
+      <a
+        href=""
+        [routerLink]="['/monthly']"
+        routerLinkActive="border-b-[3px]"
+        class="
+          h-10
+          px-4
+          pt-2
+          hover:border-b-[3px]
+        "
+      >
+        <span>Hàng tháng</span>
+      </a>
+    </div>
+    <div class="relative">
+      <button class="h-full pl-5 pr-16 flex items-center" (click)="openNav()">
+        <span class="">Thêm dự báo</span>
+        <i class="iconDownUp fa-solid fa-caret-down pl-1 text-2xl"></i>
+        <i class="iconDownUp fa-solid fa-caret-up pl-1 text-2xl hidden"></i>
+      </button>
+      <div class="subnav bg-white rounded-b-md absolute right-0 shadow-xl hidden">
+        <div class="px-4 py-2 text-black">
+          <h3 class="px-4 py-2 text-lg font-bold">
+            CẢNH BÁO ĐẶC BIỆT
+          </h3>
+          <div class="w-80 flex justify-around">
+            <a href="" [routerLink]="['/allergy']" class="grow shrink-0 basis-40">
+              <span class="px-4 py-1 text-base flex">Trình theo dõi dị ứng</span>
+            </a>
+            <a href="" [routerLink]="['/airQuality']" class="grow shrink-0 basis-40">
+              <span class="px-4 py-1 text-base flex">Dự báo chất lượng không khí</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

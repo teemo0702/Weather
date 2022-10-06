@@ -1,0 +1,191 @@
+<app-header></app-header>
+<div class="flex justify-center">
+  <div class="max-w-6xl mx-44 mt-3 mb-[60px]">
+    <div class="flex">
+      <div class="w-[788px] grow-[3]">
+        <div class="bg-white mb-3 rounded-md">
+          <h2 class="p-4">
+            <span class="text-2xl font-bold">Chất lượng không khí hôm nay</span> -
+            <span>{{address}}</span>
+          </h2>
+          <div class="pb-[26px] flex items-center">
+            <div class="w-[496px] pb-[26px] flex items-center">
+              <div class="pl-[25px] pt-[2px]">
+                <div
+                  class="pie h-[102px] w-[102px] text-[44px] font-semibold"
+                  style="--p:{{airHighest.percent}};--b:5px;--c:{{airHighest.colorLevel}};"
+                >
+                  {{airHighest.value}}
+                </div>
+              </div>
+              <div class="px-[26px] pt-3">
+                <h2 class="text-2xl font-bold">{{airHighest.nameLevel}}</h2>
+                <p class="pb-[15px] text-[#6f7585] text-[15px]">{{airHighest.desc}}</p>
+              </div>
+            </div>
+            <div class="h-fit mx-[26px] border-l pl-[26px] py-[26px] pr-4 flex-[1_0_25%]">
+              <h3 class="mb-[10px] font-medium">Chất gây ô nhiễm chính:</h3>
+              <span>{{airHighest.shortName}} ({{airHighest.name}})</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-md">
+          <h2 class="p-4 text-xl font-medium ">Tất cả các chất gây ô nhiễm</h2>
+          <div class="flex flex-wrap justify-between">
+            <ng-container *ngFor="let air of airs; let i = index">
+              <div
+                class="px-[26px] pb-[18px] mb-[18px] flex-[1_0_calc(50%-64px)]"
+                [ngClass]="{ 'border-b' : i <= 3, 'border-none' : i > 3, 'ml-[6px]' : i % 2 === 1, 'mr-[6px]' : i % 2 === 0 }"
+              >
+                <div class="">
+                  <div class="max-w-[298px] flex">
+                    <div class="">
+                      <div class="pie h-[54px] w-[54px] text-[15px] font-semibold" style="--p:{{air.percent}};--b:5px;--c:{{air.colorLevel}};">{{air.value}}</div>
+                    </div>
+                    <div class="pl-3">
+                      <span>{{air.shortName}} ({{air.name}})</span>
+                      <p class="text-[13px] text-[#6f7585] font-medium leading-4">{{air.nameLevel}}</p>
+                      <span class="text-[13px] text-[#6f7585]">{{air.index}} μg/m3</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <!-- <div class="px-[26px] pb-[18px] border-b mb-[18px] mr-[6px] flex-[1_0_calc(50%-64px)]">
+              <div class="max-w-[298px] flex">
+                <div>
+                  <div class="pie h-[54px] w-[54px] text-[15px] font-semibold" style="--p:15;--b:5px;--c:#00E838;">2</div>
+                </div>
+                <div class="pl-3">
+                  <span>SO2 (Sulfur Dioxide)</span>
+                  <p class="text-[13px] text-[#6f7585] font-medium">Tốt</p>
+                  <span class="text-[13px] text-[#6f7585]">1.32 μg/m3</span>
+                </div>
+              </div>
+            </div>
+            <div class="px-[26px] pb-[18px] border-b mb-[18px] ml-[6px] flex-[1_0_calc(50%-64px)]">
+              <div class="max-w-[298px] flex">
+                <div>
+                  <div class="pie h-[54px] w-[54px] text-[15px] font-semibold" style="--p:15;--b:5px;--c:#00E838;">1</div>
+                </div>
+                <div class="pl-3">
+                  <span>NO2 (Nitrogen Dioxide)</span>
+                  <p class="text-[13px] text-[#6f7585] font-medium">Tốt</p>
+                  <span class="text-[13px] text-[#6f7585]">8.32 μg/m3</span>
+                </div>
+              </div>
+            </div>
+            <div class="px-[26px] pb-[18px] border-b mb-[18px] mr-[6px] flex-[1_0_calc(50%-64px)]">
+              <div class="max-w-[298px] flex">
+                <div>
+                  <div class="pie h-[54px] w-[54px] text-[15px] font-semibold" style="--p:15;--b:5px;--c:#00E838;">2</div>
+                </div>
+                <div class="pl-3">
+                  <span>SO2 (Sulfur Dioxide)</span>
+                  <p class="text-[13px] text-[#6f7585] font-medium">Tốt</p>
+                  <span class="text-[13px] text-[#6f7585]">1.32 μg/m3</span>
+                </div>
+              </div>
+            </div>
+            <div class="px-[26px] pb-[18px] border-b mb-[18px] ml-[6px] flex-[1_0_calc(50%-64px)]">
+              <div class="max-w-[298px] flex">
+                <div>
+                  <div class="pie h-[54px] w-[54px] text-[15px] font-semibold" style="--p:30;--b:5px;--c:yellow;">61</div>
+                </div>
+                <div class="pl-3">
+                  <span>PM2.5 (Chất dạng hạt dưới 2.5 micron)</span>
+                  <p class="text-[13px] text-[#6f7585] font-medium">Trung bình</p>
+                  <span class="text-[13px] text-[#6f7585]">18.32 μg/m3</span>
+                </div>
+              </div>
+            </div>
+            <div class="px-[26px] pb-[18px] mb-[18px] mr-[6px] flex-[1_0_calc(50%-64px)]">
+              <div class="max-w-[298px] flex">
+                <div>
+                  <div class="pie h-[54px] w-[54px] text-[15px] font-semibold" style="--p:15;--b:5px;--c:#00E838;">24</div>
+                </div>
+                <div class="pl-3">
+                  <span>PM10 (Chất dạng hạt dưới 10 micron)</span>
+                  <p class="text-[13px] text-[#6f7585] font-medium">Tốt</p>
+                  <span class="text-[13px] text-[#6f7585]">18.32 μg/m3</span>
+                </div>
+              </div>
+            </div>
+            <div class="px-[26px] pb-[18px] mb-[18px] ml-[6px] flex-[1_0_calc(50%-64px)]">
+              <div class="max-w-[298px] flex">
+                <div>
+                  <div class="pie h-[54px] w-[54px] text-[15px] font-semibold" style="--p:15;--b:5px;--c:#00E838;">3</div>
+                </div>
+                <div class="pl-3">
+                  <span>CO (Carbon Monoxide)</span>
+                  <p class="text-[13px] text-[#6f7585] font-medium">Tốt</p>
+                  <span class="text-[13px] text-[#6f7585]">300.63 μg/m3</span>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="px-4 pb-3">
+            <button class="px-1 relative">
+              <div (click)="openInfo()">
+                <i class="fa-solid fa-circle-info text-sm"></i>
+                <span class="text-xs ml-1">CHỈ SỐ CH.LƯỢNG KH.KHÍ</span>
+              </div>
+              <div class="inforAir hidden cursor-default bg-white w-fit h-fit rounded-md shadow-[0_0_3px_2px_rgb(0,0,0,0.2)] text-left absolute -left-40 top-9">
+                <div class="before:rotate-45 before:w-3 before:h-3 before:absolute before:left-64 before:-top-[6px] before:shadow-[-2px_-2px_3px_-1px_rgb(0,0,0,0.2)] before:bg-white">
+
+                </div>
+                <div class="flex justify-end relative right-2">
+                  <button class="w-4 h-4" (click)="closeInfo()">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+                <div class="px-4 pb-4 flex">
+                  <div>
+                    <h1 class="pb-2 text-sm font-bold">Mức độ</h1>
+                    <ul class="w-[200px] leading-none">
+                      <li>
+                        <i class="fa-solid fa-circle pr-1 text-[#00e838] text-[10px]"></i>
+                        <span class="text-xs">Tốt</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle pr-1 text-[#ffff24] text-[10px]"></i>
+                        <span class="text-xs">Vừa phải</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle pr-1 text-[#ff7200] text-[10px]"></i>
+                        <span class="text-xs">Không tốt cho các nhóm nhạy cảm</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle pr-1 text-[#ff0000] text-[10px]"></i>
+                        <span class="text-xs">Không tốt</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle pr-1 text-[#9d3d8c] text-[10px]"></i>
+                        <span class="text-xs">Rất không tốt</span>
+                      </li>
+                      <li>
+                        <i class="fa-solid fa-circle pr-1 text-[#8d0021] text-[10px]"></i>
+                        <span class="text-xs">Hazardous</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="w-[250px] mx-4">
+                    <h1 class="pb-2 text-sm font-bold">Nguồn</h1>
+                    <p class="text-xs">
+                      Có thông tin Copernicus Atmosphere Monitoring Service 2022
+                      và/hoặc thông tin Copernicus Atmosphere Monitoring Service được chỉnh sửa 2022
+                    </p>
+                    <p class="mt-3 text-xs">Ủy ban Châu Âu hay ECMWF không chịu trách nhiệm về bất kỳ trường hợp sử dụng thông tin này</p>
+                  </div>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="w-[338px] ml-3 grow">
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

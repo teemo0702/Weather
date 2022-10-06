@@ -1,0 +1,117 @@
+<app-header></app-header>
+<div class="flex justify-center">
+  <div class="max-w-6xl mx-44 mt-3 mb-[60px]">
+    <div class="flex">
+      <div class="w-[788px] grow-[3]">
+        <div class="bg-white mb-3 rounded-md">
+          <h2 class="px-[26px] pt-4 pb-[6px]">
+            <span class="text-2xl font-bold">Thời tiết hàng giờ</span> -
+            <span>{{address}}</span>
+          </h2>
+          <p class="px-[26px] pb-[21px] text-base">Kể từ {{today | date : 'HH:mm'}} ICT</p>
+          <div class="w-full pb-[10px]">
+            <ng-container *ngFor="let day of infoHours; let i = index">
+              <h2 class="px-[26px] py-[10px] text-xl font-bold border-t">{{day.dayOfWeek}}, {{day.dayOfMonth}} tháng {{day.month}}</h2>
+              <ng-container *ngFor="let hour of day.hours; let j = index">
+                <div
+                  class="px-[26px] py-[10px] text-lg flex items-center border-t"
+                  *ngIf="((i===0) && (j > convertNum(today | date : 'HH'))) || (i===1) || ((i===2) && (j <= convertNum(today | date : 'HH')))"
+                  (click)="expand(hour)"
+                >
+                  <div class="w-full flex items-center text-sm">
+                    <h3 class="flex-[0_0_75px] pr-[6px]">{{getValue(hour, 'hour')}}</h3>
+                    <div class="flex-[0_0_100px] pr-[6px]">
+                      <span class="text-xl font-bold">{{getValue(hour, 'temp')}}°</span>
+                    </div>
+                    <div class="flex items-center flex-auto pr-[6px]">
+                      <i class="{{getValue(hour, 'iconCloud')}} w-11 text-[34px] text-[#d3d3d3]"></i>
+                      <span class="pl-[13px]">{{getValue(hour, 'cloud')}}</span>
+                    </div>
+                    <div class="pr-[6px] flex items-center flex-[0_0_62px]">
+                      <i class="fa-solid fa-cloud-rain mr-1 text-[#1b4de4]"></i>
+                      <span>{{getValue(hour, 'rain')}}%</span>
+                    </div>
+                    <div class="pl-[13px] flex items-center flex-[0_0_138px]">
+                      <i class="fa-solid fa-wind mr-1 text-[#1b4de4]"></i>
+                      <span>{{getValue(hour, 'wind')}}</span>
+                    </div>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-chevron-down ml-[6px] text-[#1b4de4]" [class.hidden]="getValue(hour, 'isExpand')"></i>
+                    <i class="fa-solid fa-chevron-up ml-[6px] text-[#1b4de4]" [class.hidden]="!getValue(hour, 'isExpand')"></i>
+                  </div>
+                </div>
+                <div class="px-[26px] pt-1 pb-4" [class.hidden]="!getValue(hour, 'isExpand')">
+                  <ul class="flex flex-row flex-wrap border rounded-md p-4">
+                    <li class="flex w-1/3">
+                      <div class="w-5 h-5 text-[#1b4de4] mr-[10px] flex justify-center">
+                        <i class="fa-solid fa-temperature-low"></i>
+                      </div>
+                      <div>
+                        <span class="block text-[13px] leading-none">Cảm giác như</span>
+                        <span class="text-[16px] leading-none font-bold">30°</span>
+                      </div>
+                    </li>
+                    <li class="flex w-1/3">
+                      <div class="w-5 h-5 text-[#1b4de4] mr-[10px] flex justify-center">
+                        <i class="fa-solid fa-wind"></i>
+                      </div>
+                      <div>
+                        <span class="block text-[13px] leading-none">Gió</span>
+                        <span class="text-[16px] leading-none font-bold">ĐN 16 km/giờ</span>
+                      </div>
+                    </li>
+                    <li class="flex w-1/3">
+                      <div class="w-5 h-5 text-[#1b4de4] mr-[10px] flex justify-center">
+                        <i class="fa-solid fa-droplet"></i>
+                      </div>
+                      <div>
+                        <span class="block text-[13px] leading-none">Độ ẩm</span>
+                        <span class="text-[16px] leading-none font-bold">70%</span>
+                      </div>
+                    </li>
+                    <li class="flex w-1/3 border-t pt-[10px] mt-[10px]">
+                      <div class="w-5 h-5 text-[#1b4de4] mr-[10px] flex justify-center">
+                        <i class="fa-solid fa-sun"></i>
+                      </div>
+                      <div>
+                        <span class="block text-[13px] leading-none">Chỉ số UV</span>
+                        <span class="text-[16px] leading-none font-bold">4 / 10</span>
+                      </div>
+                    </li>
+                    <li class="flex w-1/3 border-t pt-[10px] mt-[10px]">
+                      <div class="w-5 h-5 text-[#1b4de4] mr-[10px] flex justify-center">
+                        <i class="fa-solid fa-cloud"></i>
+                      </div>
+                      <div>
+                        <span class="block text-[13px] leading-none">Mây che phủ</span>
+                        <span class="text-[16px] leading-none font-bold">79%</span>
+                      </div>
+                    </li>
+                    <li class="flex w-1/3 border-t pt-[10px] mt-[10px]">
+                      <div class="w-5 h-5 text-[#1b4de4] mr-[10px] flex justify-center">
+                        <i class="fa-solid fa-snowflake"></i>
+                      </div>
+                      <div>
+                        <span class="block text-[13px] leading-none">Lượng mưa</span>
+                        <span class="text-[16px] leading-none font-bold">0 cm</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </ng-container>
+            </ng-container>
+            <div class="px-[26px] pt-[10px] border-t flex items-center h-[53px]">
+              <a href="" class="bg-[#1b4de4] text-white h-8 text-[13px] leading-none font-bold align-middle m-[5px] px-[14px] py-2 border border-solid border-[#1b4de4] rounded-2xl">
+                Thời tiết 10 ngày
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-[338px] ml-3 grow">
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

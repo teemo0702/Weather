@@ -1,0 +1,43 @@
+<div class="">
+  <div class="px-12 py-6 rounded-lg bg-[url('https://img.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_1017-25501.jpg')] bg-no-repeat bg-cover fixed left-[35rem] top-32">
+    <h1 class="p-4 text-3xl font-bold text-center">Đăng nhập</h1>
+    <form action="" [formGroup]="loginForm">
+      <div class="pt-2">
+        <input type="email" appAutoFocusInput id="email" class="w-80 px-5 py-2 border rounded-3xl" formControlName="email" placeholder="Email" required />
+        <div class="h-7 pt-1">
+          <!-- <span class="text-red-600 hidden">* Nhập email</span> -->
+          <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+            <div *ngIf="email?.errors?.['required']" class="text-red-600">
+              Email trống.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-2">
+        <input type="password" id="password" class="w-80 px-5 py-2 border rounded-3xl" formControlName="pass" placeholder="Mật khẩu" required />
+        <div class="h-7 pt-1">
+          <!-- <span class="text-red-600 invisible">* Nhập mật khẩu</span> -->
+          <div *ngIf="pass?.invalid && (pass?.dirty || pass?.touched)">
+            <div *ngIf="pass?.errors?.['required']" class="text-red-600">
+              Mật khẩu trống.
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="pt-3 pb-7 flex">
+      <input type="checkbox" name="" id="">
+      <span class="pl-2">Ghi nhớ mật khẩu</span>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="bg-sky-400 px-32 py-2 rounded-3xl" (click)="nextPage()">Đăng nhập</button>
+    </div>
+    <div id="error">
+      <span class="text-red-600 invisible">* Email hoặc mật khẩu không đúng.</span>
+    </div>
+    <div class="text-center pt-6 pb-10">
+      <span>Bạn chưa có tài khoản? Đăng kí</span>
+      <a href="" [routerLink]="['/register']" class="font-semibold hover:text-sky-500"> tại đây</a>
+    </div>
+  </div>
+</div>

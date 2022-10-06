@@ -1,0 +1,25 @@
+.pie {
+  position: relative;
+  display: inline-grid;
+  place-content: center;
+}
+.pie::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(var(--c) 0deg, var(--c) calc(var(--p)*100%), #e7ecf1 calc(var(--p)*100%));
+  border-radius: 50%;
+  -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+          mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+}
+
+.half-circle {
+  --w: 80px;
+  --r: 9999px;
+  width: var(--w);
+  height: calc(var(--w)/2);
+  border-top-left-radius: var(--r);
+  border-top-right-radius: var(--r);
+  border: 3.5px solid #e87538;
+  border-bottom: 0;
+}

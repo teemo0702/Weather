@@ -1,0 +1,67 @@
+<div class="">
+  <div class="px-12 py-6 rounded-lg bg-[url('https://img.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_1017-25501.jpg')] bg-no-repeat bg-cover fixed left-[28rem] top-16">
+    <h1 class="p-4 text-3xl font-bold text-center">Đăng kí</h1>
+    <form action="" [formGroup]="registerForm">
+      <div class="pt-2 flex">
+        <input type="text" appAutoFocusInput id="name" class="w-3/5 px-5 py-2 border rounded-3xl mr-3" formControlName="name" placeholder="Họ và tên" required />
+        <span id="errName" class="text-red-600"></span>
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <div *ngIf="name?.errors?.['required']" class="text-red-600">
+            Họ và tên trống.
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="pt-2 flex">
+        <input type="email" id="email" class="w-3/5 px-5 py-2 border rounded-3xl mr-3" formControlName="email" placeholder="Email" required />
+        <span id="errEmail" class="text-red-600"></span>
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <div *ngIf="email?.errors?.['required']" class="text-red-600">
+            E-mail trống.
+          </div>
+          <div *ngIf="email?.errors?.['pattern']" class="text-red-600">
+            E-mail không đúng định dạng.
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="pt-2 flex">
+        <input type="password" id="password" class="w-3/5 px-5 py-2 border rounded-3xl mr-3" formControlName="pass" placeholder="Mật khẩu" required />
+        <span id="errPass" class="text-red-600"></span>
+        <div *ngIf="pass?.invalid && (pass?.dirty || pass?.touched)">
+          <div *ngIf="pass?.errors?.['required']" style="color: red">
+            Mật khẩu trống.
+          </div>
+          <div *ngIf="pass?.errors?.['minlength']" style="color: red">
+            Mật khẩu phải có ít nhất 8 kí tự.
+          </div>
+          <div *ngIf="pass?.errors?.['pattern']" class="text-red-600">
+            Mật khẩu không đúng định dạng.
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="pt-2">
+        <input type="password" id="repass" class="w-3/5 px-5 py-2 border rounded-3xl mr-3" formControlName="repass" placeholder="Nhập lại mật khẩu" required />
+        <span id="errRepass" class="text-red-600"></span>
+      </div>
+      <div class="py-7 flex">
+        <input type="checkbox" name="" id="" formControlName="check" required />
+        <div class="pl-2 flex">
+          <span>Bạn đồng ý với</span>&nbsp;
+          <a href="https://weather.com/vi-VN/legal" class="font-semibold hover:text-orange-300">Điều khoản sử dụng</a>&nbsp;
+          <span>và</span>&nbsp;
+          <a href="https://weather.com/vi-VN/intl-privacy" class="font-semibold hover:text-orange-300">Chính sách quyền riêng tư</a>&nbsp;
+          <span>của chúng tôi.</span>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="bg-sky-400 px-32 py-2 rounded-3xl" (click)="nextPage()">Đăng kí</button>
+      </div>
+    </form>
+    <div class="text-center py-10">
+      <span>Bạn đã có tài khoản? Đăng nhập</span>
+      <a href="" [routerLink]="['/login']" class="font-semibold hover:text-blue-400"> tại đây</a>
+    </div>
+  </div>
+</div>
