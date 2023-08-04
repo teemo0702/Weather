@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CommonService {
   public address = 'Hà Tĩnh, Hà Tĩnh';
-  public today =  new Date();
+  public today =  new Date(2022, 7, 1);
   public pollens = [
     {
       name: 'cây',

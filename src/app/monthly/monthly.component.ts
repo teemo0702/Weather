@@ -73,8 +73,8 @@ export class MonthlyComponent implements OnInit {
   }
 
   /* lịch */
-  public currentMonth = new Date().getMonth();
-  public currentYear = new Date().getFullYear();
+  public currentMonth = new Date(2022, 7, 1).getMonth();
+  public currentYear = new Date(2022, 7, 1).getFullYear();
   public currentMonthName = new Date(this.currentYear, this.currentMonth).toLocaleString('vi', { month: 'long' });
   public nextMonthName = new Date(this.currentYear, this.currentMonth + 1).toLocaleString('vi', { month: 'long' });
   public prevMonthName = new Date(this.currentYear, this.currentMonth - 1).toLocaleString('vi', { month: 'long' });

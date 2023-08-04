@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  { path: '', component: TodayComponent },
+  { path: '', component: MonthlyComponent },
   { path: 'today', component: TodayComponent },
   { path: 'hourly', component: HourlyComponent },
   { path: 'tenDays', component: TenDaysComponent },
